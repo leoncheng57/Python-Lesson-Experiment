@@ -1,38 +1,87 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- JQuery -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>  
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Editor</title>
   <style type="text/css" media="screen">
+    body * {
+        box-sizing: border-box;
+    }
+
     body {
         overflow: hidden;
     }
 
     #editor {
         margin: 0;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        height: 80vh;
+        width: 80vw;
+    }
+
+    .buttonContainer {
+        margin: 20px;
     }
   </style>
 </head>
 <body>
-
-<pre id="editor">
+    <!-- HTML BODY -->
+    <div class="buttonContainer">
+        <button onclick="saveFile()">Run Me</button>
+    </div>
+    <div class="editorContainer">
+        <pre id="editor">
 x = True
 if (x):
     print("wow")
-</pre>
+        </pre>
+    </div>
+    <!-- SCRIPTS -->
+    <script src="{{url_for('static', filename='ace-builds/src-noconflict/ace.js')}}" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        editor.session.setMode("ace/mode/python");
 
-<script src="{{url_for('static', filename='ace-builds/src-noconflict/ace.js')}}" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-    editor.session.setMode("ace/mode/python");
-</script>
+
+        function download(filename, text) {
+            var pom = document.createElement('a');
+            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            pom.setAttribute('download', filename);
+
+            if (document.createEvent) {
+                var event = document.createEvent('MouseEvents');
+                event.initEvent('click', true, true);
+                pom.dispatchEvent(event);
+            }
+            else {
+                pom.click();
+            }
+        }
+
+        function saveFile() {
+            console.log("starting to save file...");
+            const pythonContent = editor.getValue();
+            // download('pythonContent.py', pythonContent);
+
+
+            const uriContent = "data:application/octet-stream," + encodeURIComponent(pythonContent);
+            $.ajax({
+                type: 'POST',
+                url: '/savePythonContent',
+                data: pythonContent,
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(data) {
+                    console.log('Success!');
+                },
+            });
+        }
+
+    </script>
 
 </body>
 </html>
