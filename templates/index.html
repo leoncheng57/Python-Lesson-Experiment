@@ -56,16 +56,16 @@ if (x):
                 type: 'POST',
                 url: '/savePythonContent',
                 data: pythonContent,
-                // contentType: false,
-                // cache: false,
-                // processData: false,
+                contentType: false,
+                cache: false,
+                processData: false,
                 beforeSend: function(){
                     console.log("Starting to save file...");
                 },
                 success: function(data) {
                     console.log('Python Finished Running!');
                     console.log('Response: ')
-                    console.log(data);
+                    console.log(JSON.parse(data));
                 },
             });
         }
