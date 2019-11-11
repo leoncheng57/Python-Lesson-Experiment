@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import python_runner
-import json
+import json, platform
 
 app = Flask(__name__)
 EXECUTABLE = '_executeme.py'
@@ -8,9 +8,12 @@ EXECUTABLE = '_executeme.py'
 # Index Page
 @app.route('/')
 def index():
-    return render_template("index.html")
+    version = platform.python_version()
+    return render_template("index.html", version = version)
 
 
+# Handle receiving python from frontend
+# running the python code, and returning the error messages
 @app.route('/savePythonContent', methods=['POST'])
 def savePythonContent():
 

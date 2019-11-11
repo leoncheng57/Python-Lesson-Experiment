@@ -31,6 +31,9 @@
     <div class="buttonContainer">
         <button onclick="saveFile()">Run Me</button>
     </div>
+    <div>
+        <p>Currently using Python {{version}}</p>
+    </div>
     <div class="editorContainer">
         <pre id="editor">
 x = True
@@ -45,39 +48,24 @@ if (x):
         editor.setTheme("ace/theme/twilight");
         editor.session.setMode("ace/mode/python");
 
-
-        function download(filename, text) {
-            var pom = document.createElement('a');
-            pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
-            pom.setAttribute('download', filename);
-
-            if (document.createEvent) {
-                var event = document.createEvent('MouseEvents');
-                event.initEvent('click', true, true);
-                pom.dispatchEvent(event);
-            }
-            else {
-                pom.click();
-            }
-        }
-
         function saveFile() {
-            console.log("starting to save file...");
             const pythonContent = editor.getValue();
-            // download('pythonContent.py', pythonContent);
+            // const uriContent = "data:application/octet-stream," + encodeURIComponent(pythonContent);
 
-
-            const uriContent = "data:application/octet-stream," + encodeURIComponent(pythonContent);
             $.ajax({
                 type: 'POST',
                 url: '/savePythonContent',
                 data: pythonContent,
-                contentType: false,
-                cache: false,
-                processData: false,
+                // contentType: false,
+                // cache: false,
+                // processData: false,
+                beforeSend: function(){
+                    console.log("Starting to save file...");
+                },
                 success: function(data) {
-                    console.log('Success!');
-                    console.log('Resonse: ' + data);
+                    console.log('Python Finished Running!');
+                    console.log('Response: ')
+                    console.log(data);
                 },
             });
         }
