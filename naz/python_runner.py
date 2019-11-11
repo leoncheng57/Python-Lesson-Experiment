@@ -11,6 +11,9 @@ process = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subpr
 stdout, stderr = process.communicate()
 # Printing the errors 
 
+print("stdout: ", stdout)
+print("stderr: ", stderr)
+
 sentence = stderr.split()
 errormsg = ""
 capture = False
