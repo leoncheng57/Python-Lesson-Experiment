@@ -3,8 +3,9 @@
 
 # TODO
 - [ ] write a README
-- [x] execute and handle python responses
 - [ ] deploy on Heroku
+- [ ] build a frontend for showing output and error messages
+- [x] execute and handle python responses
 - [x] think about how Naz's work can interleave well with this server
 
 # Helpful References
