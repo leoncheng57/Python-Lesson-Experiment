@@ -21,7 +21,6 @@
 
     .pythonVersion {
         background-color: rgb(219, 219, 219);
-        width: 40vw;
     }
 
     /* EDITOR */
@@ -57,11 +56,11 @@
     }
 
     .outputContainer #stderrDisplay {
-        background-color: rgb(255, 108, 108);
+        background-color: rgba(255, 108, 108, 0.548);
     }
 
     .outputContainer #customerrorDisplay {
-        background-color: rgb(185, 132, 255);
+        background-color: rgba(193, 146, 255, 0.397);
     }
 
   </style>
@@ -75,20 +74,28 @@
     </div>
     
     <div class="pythonVersion">
-        <p>Currently using Python {{version}}</p>
+        <p>Currently using Python <b>{{version}}</b></p>
     </div>
 
     <div class="editorContainer">
-        <pre id="editor">
+
+<pre id="editor">
 x = True
 if (x):
     print("wow")
 
 (3,4).append(5)
-        </pre>
+</pre>
+
     </div>
 
     <div class="outputContainer">
+        <div class="customerrorContainer">
+            <h3> Custom Error</h3>
+            <p id="customerrorDisplay">
+                (...)
+            </p>
+        </div>
         <div class="stdoutContainer">
             <h3>Output</h3>
             <p id="stdoutDisplay">
@@ -98,12 +105,6 @@ if (x):
         <div class="stderrContainer">
             <h3>Error</h3>
             <p id="stderrDisplay">
-                (...)
-            </p>
-        </div>
-        <div class="customerrorContainer">
-            <h3> Custom Error</h3>
-            <p id="customerrorDisplay">
                 (...)
             </p>
         </div>
@@ -120,6 +121,7 @@ if (x):
         var editor = ace.edit("editor");
         editor.setTheme("ace/theme/twilight");
         editor.session.setMode("ace/mode/python");
+        editor.setFontSize(16);
 
         function saveFile() {
             const pythonContent = editor.getValue();
