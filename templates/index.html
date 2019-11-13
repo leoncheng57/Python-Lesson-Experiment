@@ -24,6 +24,7 @@
         width: 40vw;
     }
 
+    /* EDITOR */
     .editorContainer {
         width: 50vw;
         height: 80vh;
@@ -36,11 +37,31 @@
         width: 100%;
     }
 
+    /* OUTPUT MESSAGES */
     .outputContainer {
         display: inline-block;
         width: 40vw;
         border: solid gray 2px;
         vertical-align: top;
+        padding: 10px;
+    }
+
+    .outputContainer p {
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 40px;
+    }
+
+    .outputContainer #stdoutDisplay {
+        background-color: rgb(185, 255, 255);
+    }
+
+    .outputContainer #stderrDisplay {
+        background-color: rgb(255, 108, 108);
+    }
+
+    .outputContainer #customerrorDisplay {
+        background-color: rgb(185, 132, 255);
     }
 
   </style>
@@ -62,18 +83,29 @@
 x = True
 if (x):
     print("wow")
+
+(3,4).append(5)
         </pre>
     </div>
 
     <div class="outputContainer">
-        <div class="">
-            stdout
+        <div class="stdoutContainer">
+            <h3>Output</h3>
+            <p id="stdoutDisplay">
+                (...)
+            </p>
         </div>
-        <div class="">
-            stderr
+        <div class="stderrContainer">
+            <h3>Error</h3>
+            <p id="stderrDisplay">
+                (...)
+            </p>
         </div>
-        <div class="">
-            customerror
+        <div class="customerrorContainer">
+            <h3> Custom Error</h3>
+            <p id="customerrorDisplay">
+                (...)
+            </p>
         </div>
     </div>
 
@@ -107,6 +139,11 @@ if (x):
                     console.log('Python Finished Running!');
                     console.log('Response: ')
                     console.log(JSON.parse(data));
+                    const pyOutput = JSON.parse(data);
+
+                    document.getElementById("stdoutDisplay").innerHTML = pyOutput.stdout;
+                    document.getElementById("stderrDisplay").innerHTML = pyOutput.stderr;
+                    document.getElementById("customerrorDisplay").innerHTML = pyOutput.customerror;
                 },
             });
         }
