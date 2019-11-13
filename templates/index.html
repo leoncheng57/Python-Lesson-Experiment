@@ -15,25 +15,48 @@
         overflow: hidden;
     }
 
-    #editor {
-        margin: 0;
-        height: 80vh;
-        width: 80vw;
-    }
-
     .buttonContainer {
         margin: 20px;
     }
+
+    .pythonVersion {
+        background-color: rgb(219, 219, 219);
+        width: 40vw;
+    }
+
+    .editorContainer {
+        width: 50vw;
+        height: 80vh;
+        display: inline-block;
+    }
+
+    #editor {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    .outputContainer {
+        display: inline-block;
+        width: 40vw;
+        border: solid gray 2px;
+        vertical-align: top;
+    }
+
   </style>
 </head>
 <body>
+    <!--------------->
     <!-- HTML BODY -->
+    <!--------------->
     <div class="buttonContainer">
         <button onclick="saveFile()">Run Me</button>
     </div>
-    <div>
+    
+    <div class="pythonVersion">
         <p>Currently using Python {{version}}</p>
     </div>
+
     <div class="editorContainer">
         <pre id="editor">
 x = True
@@ -41,7 +64,25 @@ if (x):
     print("wow")
         </pre>
     </div>
+
+    <div class="outputContainer">
+        <div class="">
+            stdout
+        </div>
+        <div class="">
+            stderr
+        </div>
+        <div class="">
+            customerror
+        </div>
+    </div>
+
+    
+    
+    
+    <!------------->
     <!-- SCRIPTS -->
+    <!------------->
     <script src="{{url_for('static', filename='ace-builds/src-noconflict/ace.js')}}" type="text/javascript" charset="utf-8"></script>
     <script>
         var editor = ace.edit("editor");
