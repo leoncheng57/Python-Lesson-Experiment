@@ -16,11 +16,22 @@
     }
 
     .buttonContainer {
+        display: inline-block;
         margin: 20px;
     }
+    .buttonContainer button {
+        background-color: green;
+        color: white;
+        width: 100px;
+        height: 50px;
+        font-size: 18px;
+        font-weight: 800;
+    }   
 
     .pythonVersion {
-        background-color: rgb(219, 219, 219);
+        display: inline-block;
+        color: rgb(0, 29, 156);
+        padding: 10px;
     }
 
     /* EDITOR */
@@ -76,6 +87,8 @@
     <div class="pythonVersion">
         <p>Currently using Python <b>{{version}}</b></p>
     </div>
+
+    <br>
 
     <div class="editorContainer">
 
