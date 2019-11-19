@@ -15,9 +15,17 @@
         overflow: hidden;
     }
 
+    .topContainer {
+        border: 2px solid black; 
+        width: 90vw;
+    }
+
     .buttonContainer {
+        /* border: 2px solid green; */
         display: inline-block;
-        margin: 20px;
+        padding: 10px;
+        width: 10vw;
+        vertical-align: top;
     }
     .buttonContainer button {
         background-color: rgba(0, 194, 0, 0.692);
@@ -31,8 +39,25 @@
     }   
 
     .pythonVersion {
+        /* border: 2px solid purple; */
         display: inline-block;
+        width: 40vw;
+        vertical-align: top;
+        display: inline-flex;
+        text-align: center;
         padding: 10px;
+    }
+
+    .instructionsContainer {
+        display: inline-block;
+        width: 39vw;
+        /* border: 3px solid orange; */
+        border-radius: 30px;
+        background-color: rgb(255, 255, 184);
+        padding: 0px 20px;
+        color: rgb(165, 81, 42);
+        overflow: auto;
+        height: 200px;
     }
 
     /* EDITOR */
@@ -84,13 +109,24 @@
     <!--------------->
     <!-- HTML BODY -->
     <!--------------->
-    <div class="buttonContainer">
-        <button onclick="saveFile()">Run Me</button>
+
+    <div class="topContainer">
+        <div class="buttonContainer">
+            <button onclick="saveFile()">Run Me</button>
+        </div>
+        
+        <div class="pythonVersion">
+            <p>Currently using Python <b>{{version}}</b></p>
+        </div>
+
+        <div class="instructionsContainer">
+            <h3> Instructions </h3>
+            <p>
+                Words, words, words...
+            </p>
+        </div>
     </div>
-    
-    <div class="pythonVersion">
-        <p>Currently using Python <b>{{version}}</b></p>
-    </div>
+
 
     <br>
 
