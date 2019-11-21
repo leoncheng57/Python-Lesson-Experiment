@@ -1,0 +1,143 @@
+"""
+
+********************************
+Hi there! Welcome to LESSON 1 :)
+********************************
+
+By the end of this lesson, you will have written your first piece of Python code!
+
+Before we get there, however, I’m going to tell you a bit about how this is going to work.
+Right now, you’re reading the instructions in a text editor, and you’ll be able to run any
+code you write here in a terminal, which will produce your results!  For example, if you
+write code (or a program) that says “Hello World!”, you will later see this message in your
+terminal: “Hello, World!”
+
+* Note: This lesson may feel very long, so feel free to skim or skip around, according to
+your level of comfort and familiarity with the material!
+
+===========================================================================================
+
+So now, to teach you some Python basics!:
+(There are 2 versions of Python, and although they are very similar with subtle differences,
+we will be teaching you Python 2)
+
+PRINT STATEMENTS
+----------------
+In Python, we can print messages to the terminal simply by using the word print, followed
+by the message itself.  So with the aforementioned example, if we wanted to print to the
+terminal “Hello World!”, you simply need to code the following:
+>>> print “Hello World!”
+
+
+STRINGS
+-------
+As you saw above, we used quotation marks around the message we wanted to print:
+"Hello World!"  This is necessary because in Python, a textual message is called a
+"string", a special type of data (or data type).  Strings can consist of any combination
+of letters, numbers, and symbols, and can be represented in 2 primary ways:
+with 'single quotes' and with "double quotes", as long as they are matched.  Therefore, the
+following are both valid and equivalent methods of printing the same string:
+>>> print “Hello World!”
+>>> print 'Hello World!'
+
+
+VARIABLES
+---------
+Furthermore, all data types can be stored in variables that can be defined with any name.
+Python convention, however, is to use underscores between multiple words in a single
+variable.  For example, the below will also print "Hello World!":
+>>> message = "Hello World!"
+>>> print message
+
+
+NUMBERS & ARITHMETIC
+---------------------
+Numbers in Python can be represented in two different data types: integers and floats.
+However, we will only be discussing integers in Lesson 1 (numbers with no decimal value).
+Integers are represented very intuitively - for example, to represent 1:
+>>> 1
+
+Similarly, integer arithmetic is also very intuitive: +, -, *, / are used to add, subtract,
+multiply, divide numbers.  Since we're only working with integers, however, / will return
+the floor (rounded-down version) of the quotient.  There are further operations that we will
+discuss in later lessons.  So for example, the below will print out 9, the sum of 7 and 2:
+>>> 7 + 2
+
+
+BOOLEANS
+--------
+Another data type is the boolean.  Boolean values can only take one of two values.
+In Python, they are represented as True and False, and corespond to integers 1 and 0,
+respectively.  (Note that these are not to be confused for strings "True" and "False")
+>>> True
+>>> False
+
+
+COMPARATORS
+-----------
+There are 6 comparators that can be used to compare 2 values in Python, to assess if they
+are equal, less than, greater than, (and so on) one another.
+
+They are as follows:
+    ==  equal to
+    !=  not equal to
+    <   less than
+    <=  less than or equal to
+    >   greater than
+    >=  greater than or equal to
+
+For example, the below will output True because the condition is true:
+>>> 3 + 5 <= 8
+
+
+BOOLEAN OPERATORS
+-----------------
+Boolean operators are also used to compare 2 statements in Python, and return a boolean
+based on whether or not the full statement is True or False.
+
+The boolean operators are as follows:
+    and  checks if both statements evaluate to True
+    or   checks if at least one statement evaluates to True
+    not  gives the opposite value of the statement
+
+For example, the following would output True:
+>>> (not 3 < 2) and True
+
+
+CONDITIONALS
+------------
+Conditional statements can be written to dictate whether or not, or "if" a following block
+of code should be executed.  The following code associated with that particular conditional
+statement, or condition, is always indented (generally 4 spaces, called "white spaces").
+
+IF statements are an example of this.  For example, the following code would return 'Y' if
+and only if the 'if statement', '1 + 2 == 3' is true.
+>>> if 1 + 2 == 3:
+        return True
+
+ELSE statements can be used to complement if statements, and dictate what should happen in
+the case that a paired IF statement is not true.  ELSE statements can only exist with IF
+statements (and cannot exist alone).  For example, the following code would return 'else
+statement' in any case where x is not equal to 2.
+>>> x = 3
+    if x == 2:
+        return "if statement"
+    else:
+        return "else statement"
+
+ELIF is short for 'else if', and dictates whether or not the following block of code should
+be executed, as long as the previous if and elif conditions were not met.  For example, the
+following code would return 'elif statement'.
+>>> x = 3
+    if x == 2:
+        return "if statement"
+    elif x == 3:
+        return "elif statement"
+    else:
+        return "else statement"
+
+===========================================================================================
+
+Now that you're more familiar with Python, let's get to coding!        
+
+"""
