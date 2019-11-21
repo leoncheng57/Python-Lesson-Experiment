@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+{% block instructions %}
+
+<div class="instructionsContainer">
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> PRINT STATEMENTS </h3>
+            <p>
+                In Python, messages are printed to the terminal by using the word print, followed by the
+                message itself.  So with the aforementioned example, to print to the terminal “Hello World”,
+                one would code the following:
+                <br>
+                <code>
+                    >>> print “Hello World”
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 1 / 8
+        </div>
+    </div>
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> STRINGS </h3>
+            <p>
+                As seen above, quotation marks are used around the message to be printed: "Hello World"
+                This is necessary because in Python, a textual message is called a "string", a special type
+                of data (or data type).  Strings can consist of any combination of letters, numbers, and
+                symbols, and can be represented in 2 primary ways: with 'single quotes' and with "double
+                quotes", as long as they are matched.  Therefore, the following are both valid and equivalent methods of printing the same string:
+                <br>
+                <code>
+                    >>> print “Hello World”
+                    <br>
+                    >>> print 'Hello World'
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 2 / 8
+        </div>
+    </div>
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> VARIABLES </h3>
+            <p>
+                Furthermore, all data types can be stored in variables that can be defined with any name.
+                Python convention, however, is to use underscores between multiple words in a single
+                variable.  For example, the below will also print "Hello World":
+                <br>
+                <code>
+                    >>> message = "Hello World"
+                    <br>
+                    >>> print message
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 3 / 8
+        </div>
+    </div>
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> BOOLEANS </h3>
+            <p>
+                Another data type is the boolean.  Boolean values can only take one of two values.
+                In Python, they are represented as True and False, and corespond to integers 1 and 0,
+                respectively.  (Note that these are not to be confused for strings "True" and "False")
+                <br>
+                <code>
+                    >>> True
+                    <br>
+                    >>> False
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 4 / 8
+        </div>
+    </div>
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> COMPARATORS </h3>
+            <p>
+                There are 6 comparators that can be used to compare 2 values in Python, to assess if they
+                are equal, less than, greater than, (and so on) one another.
+                <br>
+                They are as follows:
+                <ul>
+                    <li>
+                        ==  &nbsp; equal to
+                    </li>
+                    <li>
+                        !=  &nbsp;&nbsp; not equal to
+                    </li>
+                    <li>
+                        <   &nbsp;&nbsp;&nbsp; less than
+                    </li>
+                    <li>
+                        <=  &nbsp; less than or equal to
+                    </li>
+                    <li>
+                        >   &nbsp;&nbsp;&nbsp; greater than
+                    </li>
+                    <li>
+                        >=  &nbsp; greater than or equal to
+                    </li>
+                </ul>  
+                <br>
+                For example, the below will output True because the condition is true:
+
+                <br>
+                <code>
+                    >>> 3 + 5 <= 8
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 5 / 8
+        </div>
+    </div>
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> CONDITIONALS 1 </h3>
+            <p>
+                Conditional statements can be written to dictate whether or not, or "if" a following block
+                of code should be executed.  The following code associated with that particular conditional
+                statement, or condition, is always indented (generally 4 spaces, called "white spaces").
+                <br>
+                IF statements are an example of this.  For example, the following code would return 'Y' if
+                and only if the 'if statement', '1 + 2 == 3' is true.
+                <br>
+                <code>
+                    >>> if 1 + 2 == 3:
+                    <br>
+                    &emsp; return True
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 6 / 8
+        </div>
+    </div>
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> CONDITIONALS 2 </h3>
+            <p>
+                ELSE statements can be used to complement if statements, and dictate what should happen in
+                the case that a paired IF statement is not true.  ELSE statements can only exist with IF
+                statements (and cannot exist alone).  For example, the following code would return 'else
+                statement' in any case where x is not equal to 2.
+                <br>
+                <code>
+                    >>> x = 3
+                    <br>
+                    &emsp; if x == 2:
+                    <br>
+                    &emsp;&emsp;&emsp;&emsp;return "if statement"
+                    <br>
+                    &emsp; else:
+                    <br>
+                    &emsp;&emsp;&emsp; return "else statement"
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 7 / 8
+        </div>
+    </div>
+    <div class="instructionsSlide">
+        <div class="text">
+            <h3> CONDITIONALS 3 </h3>
+            <p>
+                ELIF is short for 'else if', and dictates whether or not the following block of code should
+                be executed, as long as the previous if and elif conditions were not met.  For example, the
+                following code would return 'elif statement'.
+                <br>
+                <code>
+                    >>> x = 3
+                    <br>
+                    &emsp; if x == 2:
+                    <br>
+                    &emsp;&emsp;&emsp;&emsp;return "if statement"
+                    <br>
+                    &emsp; elif x == 3:
+                    <br>
+                    &emsp;&emsp;&emsp;&emsp;return "elif statement"
+                    <br>
+                    &emsp; else:
+                    <br>
+                    &emsp;&emsp;&emsp; return "else statement"
+                </code>
+            </p>        
+        </div>
+        <div class="page">
+            Page 8 / 8
+        </div>
+    </div>
+
+
+    <button id="leftButton"> < </button>
+    <button id="rightButton"> > </button>
+</div>
+{% endblock %}

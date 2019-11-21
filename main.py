@@ -1,15 +1,33 @@
 from flask import Flask, render_template, request
 import python_runner
-import json, platform
+import json, platform, random
 
 app = Flask(__name__)
 EXECUTABLE = '_executeme.py'
+version = platform.python_version()
 
 # Index Page
 @app.route('/')
 def index():
-    version = platform.python_version()
-    return render_template("index.html", version = version)
+    # return render_template("index.html", version = version, link=random.choice(["./un_a.html", "./an_a.html"]))
+    return render_template("index.html", version = version, link=random.choice(["./un_a.html", "./un_a.html"]))
+
+
+@app.route('/un_a.html')
+def un_a():
+    return render_template("un_a.html")
+
+@app.route('/un_b.html')
+def un_b():
+    return render_template("un_b.html")
+
+@app.route('/an_a.html')
+def an_a():
+    return render_template("an_a.html")
+
+@app.route('/an_b.html')
+def an_b():
+    return render_template("an_b.html")
 
 
 # Handle receiving python from frontend

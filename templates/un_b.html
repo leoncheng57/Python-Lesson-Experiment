@@ -1,4 +1,6 @@
+{% extends "un_base.html" %}
 
+{% block code %}
 """
 
 **********
@@ -35,4 +37,13 @@ else:
 	print("It's the weekend!")
 
 """
+{% endblock %}
 
+
+{% block next %}
+<a href="#">
+    <button>
+        Take Survey!
+    </button>
+</a>
+{% endblock %}

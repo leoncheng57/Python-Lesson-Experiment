@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- JQuery -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>  
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <style type="text/css" media="screen">
+    body * {
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .topContainer {
+        /* border: 2px solid black;  */
+        width: 90vw;
+    }
+
+    .buttonContainer {
+        /* border: 2px solid green; */
+        display: inline-block;
+        padding: 10px;
+        width: 12%;
+        vertical-align: top;
+    }
+    .buttonContainer button {
+        background-color: rgba(0, 194, 0, 0.692);
+        color: white;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        width: 100px;
+        height: 50px;
+        font-size: 18px;
+        font-weight: 800;
+        border-radius: 10px;
+    }   
+
+    .pythonVersion {
+        /* border: 2px solid purple; */
+        padding: 10px 20px;
+    }
+
+    .instructionsContainer {
+        display: inline-block;
+        width: 87%;
+        /* border: 3px solid orange; */
+        border-radius: 30px;
+        background-color: rgb(255, 255, 184);
+        padding: 0px 20px;
+        color: rgb(165, 81, 42);
+        overflow: auto;
+        height: 200px;
+        position: relative;
+    }
+    .instructionsContainer button {
+        background-color: rgb(165, 81, 42);
+        color: rgb(255, 255, 184);
+        border: 1px silver solid;
+        border-radius: 10px;
+        position: absolute;
+        float: right;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .instructionsContainer button:hover {
+        background-color: brown;
+    }
+    #leftButton {
+        bottom: 15px;
+        right: 50px;
+    }
+    #rightButton {
+        bottom: 15px;
+        right: 20px;
+    }
+
+    .instructionsSlide {
+        box-sizing: border-box;
+        height: 180px;
+    }
+
+    .instructionsSlide .text {
+        height: 90%;
+        overflow: auto;
+    }
+
+    /* EDITOR */
+    .editorContainer {
+        width: 50vw;
+        height: 65vh;
+        display: inline-block;
+    }
+
+    #editor {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* OUTPUT MESSAGES */
+    .outputContainer {
+        display: inline-block;
+        width: 40vw;
+        height: 65vh;
+        border: solid gray 2px;
+        vertical-align: top;
+        padding: 10px;
+        overflow: auto;
+    }
+
+    .outputContainer p {
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        white-space: pre-wrap;
+    }
+
+    .outputContainer #stdoutDisplay {
+        background-color: rgb(185, 255, 255);
+    }
+
+    .outputContainer #stderrDisplay {
+        background-color: rgba(255, 108, 108, 0.548);
+    }
+
+    .outputContainer #customerrorDisplay {
+        background-color: rgba(193, 146, 255, 0.397);
+    }
+
+  </style>
+</head>
+<body>
+    <!--------------->
+    <!-- HTML BODY -->
+    <!--------------->
+
+    <div class="topContainer">
+        <div class="buttonContainer">
+            <center>
+                <div class="pythonVersion">
+                    <p>Currently using Python <b>{{version}}</b></p>
+                </div>
+                <button onclick="saveFile()">Run Me</button>
+            </center>
+        </div>
+
+        {% block instructions %}
+        {% endblock %}
+    </div>
+
+
+    <br>
+
+    <div class="editorContainer">
+
+<pre id="editor">
+{% block code %}
+{% endblock %}
+</pre>
+
+    </div>
+
+    <div class="outputContainer">
+        <div class="customerrorContainer">
+            <h3> Custom Error</h3>
+            <p id="customerrorDisplay">(...)</p>
+        </div>
+        <div class="stdoutContainer">
+            <h3>Output</h3>
+            <p id="stdoutDisplay">(...)</p>
+        </div>
+        <div class="stderrContainer">
+            <h3>Error</h3>
+            <p id="stderrDisplay">(...)</p>
+        </div>
+        {% block next %}
+        {% endblock %}
+    </div>
+
+    
+    
+    
+    <!------------->
+    <!-- SCRIPTS -->
+    <!------------->
+    <script src="{{url_for('static', filename='ace-src-noconflict/ace.js')}}" type="text/javascript" charset="utf-8"></script>
+    <script>
+
+        /* ACE EDITOR */
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/twilight");
+        editor.session.setMode("ace/mode/python");
+        editor.setFontSize(16);
+
+        /* SAVE PYTHON FILE TO RUN */
+        function saveFile() {
+            const pythonContent = editor.getValue();
+            // const uriContent = "data:application/octet-stream," + encodeURIComponent(pythonContent);
+
+            $.ajax({
+                type: 'POST',
+                url: '/savePythonContent',
+                data: pythonContent,
+                contentType: false,
+                cache: false,
+                processData: false,
+                beforeSend: function(){
+                    console.log("Starting to save file...");
+                },
+                success: function(data) {
+                    console.log('Python Finished Running!');
+                    console.log('Response: ')
+                    console.log(JSON.parse(data));
+                    const pyOutput = JSON.parse(data);
+
+                    document.getElementById("stdoutDisplay").innerHTML = pyOutput.stdout;
+                    document.getElementById("stderrDisplay").innerHTML = pyOutput.stderr;
+                    document.getElementById("customerrorDisplay").innerHTML = pyOutput.customerror;
+                },
+            });
+        }
+
+        /* INSTRUCTIONS SLIDESHOW */
+        var slideIndex = 0;
+        showSlide(slideIndex);
+
+        function showSlide(n) {
+            let slides = document.getElementsByClassName("instructionsSlide");
+            // deal with bounds
+            if (n >= slides.length) {n = 0} 
+            if (n < 0) {n = slides.length-1}
+            // set all slides to invisible
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            // set slide n to visible 
+            slides[n].style.display = "block";  
+            // set slideIndex
+            slideIndex = n;
+        }
+
+        document.getElementById("leftButton").addEventListener("click", function() {
+            showSlide(slideIndex - 1);
+        });
+        document.getElementById("rightButton").addEventListener("click", function(){
+            showSlide(slideIndex + 1)
+        });
+          
+
+    </script>
+
+</body>
+</html>
