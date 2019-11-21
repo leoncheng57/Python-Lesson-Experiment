@@ -16,7 +16,7 @@
     }
 
     .topContainer {
-        border: 2px solid black; 
+        /* border: 2px solid black;  */
         width: 90vw;
     }
 
@@ -24,7 +24,7 @@
         /* border: 2px solid green; */
         display: inline-block;
         padding: 10px;
-        width: 10vw;
+        width: 12%;
         vertical-align: top;
     }
     .buttonContainer button {
@@ -40,17 +40,12 @@
 
     .pythonVersion {
         /* border: 2px solid purple; */
-        display: inline-block;
-        width: 40vw;
-        vertical-align: top;
-        display: inline-flex;
-        text-align: center;
-        padding: 10px;
+        padding: 10px 20px;
     }
 
     .instructionsContainer {
         display: inline-block;
-        width: 39vw;
+        width: 87%;
         /* border: 3px solid orange; */
         border-radius: 30px;
         background-color: rgb(255, 255, 184);
@@ -87,7 +82,8 @@
     }
 
     .instructionsSlide .text {
-        height: 80%;
+        height: 90%;
+        overflow: auto;
     }
 
     /* EDITOR */
@@ -142,19 +138,27 @@
 
     <div class="topContainer">
         <div class="buttonContainer">
-            <button onclick="saveFile()">Run Me</button>
+            <center>
+                <div class="pythonVersion">
+                    <p>Currently using Python <b>{{version}}</b></p>
+                </div>
+                <button onclick="saveFile()">Run Me</button>
+            </center>
         </div>
         
-        <div class="pythonVersion">
-            <p>Currently using Python <b>{{version}}</b></p>
-        </div>
 
         <div class="instructionsContainer">
             <div class="instructionsSlide">
                 <div class="text">
-                    <h3> Instructions </h3>
+                    <h3> PRINT STATEMENTS </h3>
                     <p>
-                        Words, words, words...
+                        In Python, messages are printed to the terminal by using the word print, followed by the
+                        message itself.  So with the aforementioned example, to print to the terminal “Hello World”,
+                        one would code the following:
+                        <br>
+                        <code>
+                            >>> print “Hello World”
+                        </code>
                     </p>        
                 </div>
                 <div class="page">
@@ -163,9 +167,19 @@
             </div>
             <div class="instructionsSlide">
                 <div class="text">
-                    <h3> Numbers </h3>
+                    <h3> STRINGS </h3>
                     <p>
-                        1, 2, 3, 4...
+                        As seen above, quotation marks are used around the message to be printed: "Hello World"
+                        This is necessary because in Python, a textual message is called a "string", a special type
+                        of data (or data type).  Strings can consist of any combination of letters, numbers, and
+                        symbols, and can be represented in 2 primary ways: with 'single quotes' and with "double
+                        quotes", as long as they are matched.  Therefore, the following are both valid and equivalent methods of printing the same string:
+                        <br>
+                        <code>
+                            >>> print “Hello World”
+                            <br>
+                            >>> print 'Hello World'
+                        </code>
                     </p>        
                 </div>
                 <div class="page">
