@@ -9,7 +9,17 @@ version = platform.python_version()
 # Index Page
 @app.route('/')
 def index():
-    return render_template("index.html", version = version, link=random.choice(["./un_a.html", "./an_a.html"]))
+    links = [
+        {
+            'url': "./un_a.html",
+            'display': 'Click here to Continue (A)'
+        },
+        {
+            'url': "./an_a.html",
+            'display': 'Click here to Continue (B)'
+        }
+    ]
+    return render_template("index.html", version = version, links=links)
 
 @app.route('/un_a.html')
 def un_a():

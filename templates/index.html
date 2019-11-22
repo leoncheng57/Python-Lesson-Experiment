@@ -10,7 +10,7 @@
             margin-top: 10vh;
         }
         div {
-            margin: 20vh 0px;
+            margin: 10vh 0px;
         }
         a {
             font-size: 60px;
@@ -24,11 +24,13 @@
             An experimental study conducted by five Harvard and MIT students 
             for a graduate class on Human Computer Interaction
         </div>
-        <div>
-            <a href="{{link}}">
-                    Click to Continue!
-            </a>
-        </div>
+        {% for link in links%}
+            <div>
+                <a href="{{link.url}}">
+                    {{link.display}}
+                </a>
+            </div>
+        {% endfor %}
     </center>
 </body>
 </html>
