@@ -23,19 +23,34 @@ def index():
 
 @app.route('/un_a.html')
 def un_a():
-    return render_template("un_a.html", version = version, is_anthro = False, basepage = "regular_instructions.html")
+    return render_template("un_a.html", version = version, 
+    is_anthro = False, 
+    basepage = "regular_instructions.html", 
+    buttonsData = [{'url': './un_b.html', 'display': 'Next Lesson'}])
 
 @app.route('/un_b.html')
 def un_b():
-    return render_template("un_b.html", version = version, is_anthro = False, basepage = "regular_instrutions.html")
+    return render_template("un_b.html", version = version, 
+    is_anthro = False, 
+    basepage = "regular_instrutions.html",
+    buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
+
 
 @app.route('/an_a.html')
 def an_a():
-    return render_template("an_a.html", version = version, is_anthro = True, basepage = "anthro_instrutions.html")
+    return render_template("an_a.html", version = version, 
+    is_anthro = True, 
+    basepage = "anthro_instrutions.html",
+    buttonsData = [{'url': './an_b.html', 'display': 'Next Lesson'}])
 
 @app.route('/an_b.html')
 def an_b():
-    return render_template("an_b.html", version = version, is_anthro = True, basepage = "anthro_instrutions.html")
+    return render_template("an_b.html", version = version, 
+    is_anthro = True, 
+    basepage = "anthro_instrutions.html",
+    buttonsData = [{'url': './an_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
+
+    
 
 
 # Handle receiving python from frontend

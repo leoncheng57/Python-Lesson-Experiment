@@ -189,8 +189,16 @@
             <h3>Error</h3>
             <p id="stderrDisplay">(...)</p>
         </div>
-        {% block next %}
-        {% endblock %}
+
+        <!-- Buttons -->
+        {% for button in buttonsData %}
+        <a href="{{button.url}}">
+            <button>
+                {{button.display}}
+            </button>
+        </a>
+        <span>&nbsp;</span>
+        {% endfor %}
     </div>
 
     
