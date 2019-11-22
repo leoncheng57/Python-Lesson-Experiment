@@ -32,7 +32,7 @@ def un_a():
 def un_b():
     return render_template("un_b.html", version = version, 
     is_anthro = False, 
-    basepage = "regular_instrutions.html",
+    basepage = "regular_instructions.html",
     buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
 
 
@@ -40,14 +40,14 @@ def un_b():
 def an_a():
     return render_template("an_a.html", version = version, 
     is_anthro = True, 
-    basepage = "anthro_instrutions.html",
+    basepage = "anthro_instructions.html",
     buttonsData = [{'url': './an_b.html', 'display': 'Next Lesson'}])
 
 @app.route('/an_b.html')
 def an_b():
     return render_template("an_b.html", version = version, 
     is_anthro = True, 
-    basepage = "anthro_instrutions.html",
+    basepage = "anthro_instructions.html",
     buttonsData = [{'url': './an_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
 
     
