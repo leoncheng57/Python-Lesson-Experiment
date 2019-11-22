@@ -12,24 +12,19 @@ def run(filename):
   stdout, stderr = process.communicate()
   # Printing the errors 
 
-  # print("stdout: ", stdout)
-  # print("stderr: ", stderr)
-
-    
   def checklines (lines, truelst, falselst):
     for i in range (len(lines)):
+      cond = True
       for j in range (len(truelst)):
-        line = 0
+        condj = False
         for k in range (len(truelst[j])):
-          if len(falselst) == 0:
-            if truelst[j][k] in lines[i]:
-              return True
-              line = i
-          else:
-            for l in range (len(falselst)):
-              if truelst[j][k] in lines[i] and falselst[l] not in lines[i]:
-                return True
-                line = i
+          condj = condj or (truelst[j][k] in lines[i])
+        cond = cond and condj
+      conl = True
+      for l in range (len(falselst)):
+        conl = conl and (falselst[l] not in lines[i])
+      if cond and conl:
+        return True
     return False
 
   sentence = stderr.split()
@@ -53,7 +48,7 @@ def run(filename):
     anthro = "Remember the two operators we learned! " + helpful + " Keep going!"
   elif "SyntaxError" in errormsg and checklines(lines, [["if","else","elif"]], [":"]):
     helpful = "How do we mark the end of an if statement?"
-    anthro = "Awesome job with this if/elif/else statement so far! " + helpful + " You're almost there!"
+    anthro = "Awesome job with the " + ("else" if "else" in stderr else ("if" if "if" in stderr else "elif")) + " statement so far! " + helpful + " You're almost there!"
   elif "NameError" in errormsg:
     name = ""
     for i in range (len(sentence)):
