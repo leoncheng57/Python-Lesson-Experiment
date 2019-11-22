@@ -1,15 +1,42 @@
 {% extends "base.html" %}
 
 {% block instructions %}
-
 <div class="instructionsContainer">
+    <div class="instructionsSlide">
+        <div class="text">
+            <p>
+                <h3>
+                    Hi there! Welcome to LESSON 1 :)
+                </h3> 
+                
+                By the end of this lesson, you will have written your first piece of Python code!
+                
+                Before we get there, however, I’m going to tell you a bit about how this is going to work.
+                Right now, you’re reading the instructions and below is a text editor where you’ll be able to run any code you write.
+                <br>
+                <br>
+                 Click 'Run Me' to produce your results!  For example, if you
+                write code (or a program) that says “Hello World!”, you will see “Hello, World!” in your output.
+                <br><br>
+                * Note: This lesson may feel very long, so feel free to skim or skip around, according to
+                your level of comfort and familiarity with the material!
+                <br><br>
+                So now, to teach you some Python basics!
+                (There are 2 versions of Python, and although they are very similar with subtle differences,
+                we will be teaching you Python 2)
+            </p>        
+        </div>
+        <div class="page">
+            Page 0 / 8
+        </div>
+    </div>
     <div class="instructionsSlide">
         <div class="text">
             <h3> PRINT STATEMENTS </h3>
             <p>
-                In Python, messages are printed to the terminal by using the word print, followed by the
-                message itself.  So with the aforementioned example, to print to the terminal “Hello World”,
-                one would code the following:
+                In Python, we can print messages to the terminal simply by using the word print, followed
+                by the message itself.  So with the aforementioned example, if we wanted to print to the
+                terminal “Hello World!”, you simply need to code the following:
                 <br>
                 <code>
                     >>> print “Hello World”
@@ -24,11 +51,12 @@
         <div class="text">
             <h3> STRINGS </h3>
             <p>
-                As seen above, quotation marks are used around the message to be printed: "Hello World"
-                This is necessary because in Python, a textual message is called a "string", a special type
-                of data (or data type).  Strings can consist of any combination of letters, numbers, and
-                symbols, and can be represented in 2 primary ways: with 'single quotes' and with "double
-                quotes", as long as they are matched.  Therefore, the following are both valid and equivalent methods of printing the same string:
+                As you saw above, we used quotation marks around the message we wanted to print:
+                "Hello World!"  This is necessary because in Python, a textual message is called a
+                "string", a special type of data (or data type).  Strings can consist of any combination
+                of letters, numbers, and symbols, and can be represented in 2 primary ways:
+                with 'single quotes' and with "double quotes", as long as they are matched.  Therefore, the
+                following are both valid and equivalent methods of printing the same string:
                 <br>
                 <code>
                     >>> print “Hello World”
@@ -47,10 +75,10 @@
             <p>
                 Furthermore, all data types can be stored in variables that can be defined with any name.
                 Python convention, however, is to use underscores between multiple words in a single
-                variable.  For example, the below will also print "Hello World":
+                variable.  For example, the below will also print "Hello World!":
                 <br>
                 <code>
-                    >>> message = "Hello World"
+                    >>> message = "Hello World!"
                     <br>
                     >>> print message
                 </code>
@@ -192,6 +220,11 @@
                     &emsp;&emsp;&emsp; return "else statement"
                 </code>
             </p>        
+            <div style="border-top: 1px dashed rgb(165, 81, 42);"></div>
+            <p>
+                Now that you're more familiar with Python, let's get to coding!
+            </p>
+            <br>
         </div>
         <div class="page">
             Page 8 / 8
