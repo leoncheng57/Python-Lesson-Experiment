@@ -13,19 +13,19 @@ def index():
 
 @app.route('/un_a.html')
 def un_a():
-    return render_template("un_a.html", version = version, is_anthro = False)
+    return render_template("un_a.html", version = version, is_anthro = False, basepage = "regular_instructions.html")
 
 @app.route('/un_b.html')
 def un_b():
-    return render_template("un_b.html", version = version, is_anthro = False)
+    return render_template("un_b.html", version = version, is_anthro = False, basepage = "regular_instrutions.html")
 
 @app.route('/an_a.html')
 def an_a():
-    return render_template("an_a.html", version = version, is_anthro = True)
+    return render_template("an_a.html", version = version, is_anthro = True, basepage = "anthro_instrutions.html")
 
 @app.route('/an_b.html')
 def an_b():
-    return render_template("an_b.html", version = version, is_anthro = True)
+    return render_template("an_b.html", version = version, is_anthro = True, basepage = "anthro_instrutions.html")
 
 
 # Handle receiving python from frontend
