@@ -1,27 +1,20 @@
 
 """
 
-************
-LESSON 1B :)
-************
+**********
+LESSON 1A
+**********
 
-Congratulations on making it this far!
-
-This time, we'll be letting go of the training wheels and asking you to write
-the code fully on your own (at line 24)!
-
-In the following space, use the if/elif/else structure to:
-	1) Set a variable, 'day', to the current day of the week as a string.
-	2) Print 'It is Monday!' if it is Monday, 'It is Tuesday!' if it is
-		Tuesday, and so on ... for all the weekdays (not including weekends)
-	3) If it a weekend (Saturday, Sunday), print "It's the weekend!"
-
-Good luck!
-Rachel
+In the following code (lines 12-17), change x to 10, and then print out whether
+or not x is 10.
 
 """
 
-# Write your code here!
-print("Hello world!")
+x = 5
+
+if x == 5:
+    print("x is five!")
+else:
+    print("x is not five...")
 
 

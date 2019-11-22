@@ -1,4 +1,4 @@
-#!/home/slimmy-ubuntu/Downloads/Python-Lesson-Experiment/venv/bin/python
+#!/home/leon/Python-Lesson-Experiment/venv/bin/python
 
 import sys
 import getopt
