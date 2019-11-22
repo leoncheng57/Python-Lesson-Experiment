@@ -15,6 +15,12 @@ In the following space, use the if/elif/else structure to:
 
 print("Hello world")
 
+        <div class="stdoutContainer">
+            <h3>Output</h3>
+            <p id="stdoutDisplay">(...)</p>
+        </div>
+
+
 """
 
 Expected solution:

@@ -163,13 +163,13 @@
     </div>
 
     <div class="outputContainer">
-        <div class="customerrorContainer">
-            <h3> Custom Error</h3>
-            <p id="customerrorDisplay">(...)</p>
-        </div>
         <div class="stdoutContainer">
             <h3>Output</h3>
             <p id="stdoutDisplay">(...)</p>
+        </div>
+        <div class="customerrorContainer">
+            <h3> Custom Error</h3>
+            <p id="customerrorDisplay">(...)</p>
         </div>
         <div class="stderrContainer">
             <h3>Error</h3>
@@ -217,7 +217,11 @@
 
                     document.getElementById("stdoutDisplay").innerHTML = pyOutput.stdout;
                     document.getElementById("stderrDisplay").innerHTML = pyOutput.stderr;
-                    document.getElementById("customerrorDisplay").innerHTML = pyOutput.customerror;
+                    {% if is_anthro %}
+                        document.getElementById("customerrorDisplay").innerHTML = pyOutput.anthroerror;
+                    {% else %}
+                        document.getElementById("customerrorDisplay").innerHTML = pyOutput.helpfulerror;
+                    {% endif %}
                 },
             });
         }

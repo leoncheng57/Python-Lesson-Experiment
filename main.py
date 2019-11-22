@@ -10,24 +10,22 @@ version = platform.python_version()
 @app.route('/')
 def index():
     return render_template("index.html", version = version, link=random.choice(["./un_a.html", "./an_a.html"]))
-    # return render_template("index.html", version = version, link=random.choice(["./un_a.html", "./un_a.html"]))
-
 
 @app.route('/un_a.html')
 def un_a():
-    return render_template("un_a.html", version = version)
+    return render_template("un_a.html", version = version, is_anthro = False)
 
 @app.route('/un_b.html')
 def un_b():
-    return render_template("un_b.html", version = version)
+    return render_template("un_b.html", version = version, is_anthro = False)
 
 @app.route('/an_a.html')
 def an_a():
-    return render_template("an_a.html", version = version)
+    return render_template("an_a.html", version = version, is_anthro = True)
 
 @app.route('/an_b.html')
 def an_b():
-    return render_template("an_b.html", version = version)
+    return render_template("an_b.html", version = version, is_anthro = True)
 
 
 # Handle receiving python from frontend
