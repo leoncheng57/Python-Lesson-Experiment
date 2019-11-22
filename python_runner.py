@@ -45,12 +45,15 @@ def run(filename):
 
   helpful = ""
   anthro = ""
-  if "SyntaxError" in errormsg and checklines(lines, [["if", "else", "elif"], ["="]], ["=="]) :
+  if "SyntaxError" in errormsg and checklines(lines, [["if", "else", "elif"], ["="]], ["=="]):
     helpful = "Remember that how we check if something is equal is different than assigning a value to a variable!"
     anthro = "You're doing great! Don't worry, this is not a huge deal. " + helpful + " You can do it!"
+  elif "SyntaxError" in errormsg and checklines(lines, [["if", "else", "elif"], ["==="]], []):
+    helpful = "The two options are = or == to either assign a value or check equality!"
+    anthro = "Remember the two operators we learned! " + helpful + " Keep going!"
   elif "SyntaxError" in errormsg and checklines(lines, [["if","else","elif"]], [":"]):
     helpful = "How do we mark the end of an if statement?"
-    anthro = "Awesome job with the " + ("else" if "else" in stderr else ("if" if "if" in stderr else "elif")) + " statement so far! " + helpful + " You're almost there!"
+    anthro = "Awesome job with this if/elif/else statement so far! " + helpful + " You're almost there!"
   elif "NameError" in errormsg:
     name = ""
     for i in range (len(sentence)):
@@ -70,13 +73,12 @@ def run(filename):
   if stderr == "" and stdout == "":
     helpful = "Make sure you are printing something out! Remember to use the print keyword!"
     anthro = helpful + "You're so close!"
-  elif stderr == "" and len(output) > 1:
+  elif stderr == "" and len(output) > 2:
     helpful = "How can we use if/elif/else statements to make only one statement print out?"
     anthro = "Great job printing this all out! " + helpful
 
   return {
     'stdout': stdout,
     'stderr': stderr,
-    'helpfulerror': helpful,
-    'anthroerror': anthro
+    'customerror': anthro # or helpful
   }
