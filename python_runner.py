@@ -80,5 +80,6 @@ def run(filename):
   return {
     'stdout': stdout,
     'stderr': stderr,
-    'customerror': anthro # or helpful
+    'helpfulerror': helpful,
+    'anthroerror': anthro
   }
