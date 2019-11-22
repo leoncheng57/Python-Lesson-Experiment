@@ -37,7 +37,7 @@ def std_b():
     return render_template("un_b.html", version = version, 
     errorType = 'standard', 
     basepage = "regular_instructions.html",
-    buttonsData = [{'url': './std_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
+    buttonsData = [{'url': './std_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}])
 
 
 @app.route('/un_a.html')
@@ -52,7 +52,7 @@ def un_b():
     return render_template("un_b.html", version = version, 
     errorType = 'helpful', 
     basepage = "regular_instructions.html",
-    buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
+    buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}])
 
 
 @app.route('/an_a.html')
@@ -67,7 +67,7 @@ def an_b():
     return render_template("an_b.html", version = version, 
     errorType = 'anthro', 
     basepage = "anthro_instructions.html",
-    buttonsData = [{'url': './an_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
+    buttonsData = [{'url': './an_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}])
 
     
 
