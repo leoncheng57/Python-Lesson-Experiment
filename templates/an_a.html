@@ -1,0 +1,55 @@
+{% extends "an_base.html" %}
+
+
+
+{% block code %}
+"""
+
+************
+LESSON 1A :)
+************
+
+Welcome back!
+
+Now that you're familiar with Python basics, it's time to write your first
+block of code!
+
+In the following code (lines 20-25), change x to 10, and then print out whether
+or not x is 10.
+
+Have fun!
+Rachel
+
+"""
+
+x = 5
+
+if x == 5:
+    print("x is five!")
+else:
+    print("x is not five...")
+
+"""
+
+Expected solution:
+
+x = 10
+
+if x == 10:
+    print("x is ten!")
+else:
+    print("x is not ten...")
+
+"""
+{% endblock %}
+
+
+
+
+{% block next %}
+<a href="./an_b.html">
+    <button>
+        Next Lesson
+    </button>
+</a>
+{% endblock %}
