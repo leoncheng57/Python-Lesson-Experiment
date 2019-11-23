@@ -11,27 +11,46 @@ version = platform.python_version()
 def index():
     links = [
         {
-            'url': "./un_a.html",
+            'url': "./std_a.html",
             'display': 'Click here to Continue (A)'
         },
         {
-            'url': "./an_a.html",
+            'url': "./un_a.html",
             'display': 'Click here to Continue (B)'
+        },
+        {
+            'url': "./an_a.html",
+            'display': 'Click here to Continue (C)'
         }
     ]
     return render_template("index.html", version = version, links=links)
 
+@app.route('/std_a.html')
+def std_a():
+    return render_template("un_a.html", version = version, 
+    errorType = 'standard', 
+    basepage = "regular_instructions.html", 
+    buttonsData = [{'url': './std_b.html', 'display': 'Next Lesson'}])
+
+@app.route('/std_b.html')
+def std_b():
+    return render_template("un_b.html", version = version, 
+    errorType = 'standard', 
+    basepage = "regular_instructions.html",
+    buttonsData = [{'url': './std_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
+
+
 @app.route('/un_a.html')
 def un_a():
     return render_template("un_a.html", version = version, 
-    is_anthro = False, 
+    errorType = 'helpful', 
     basepage = "regular_instructions.html", 
     buttonsData = [{'url': './un_b.html', 'display': 'Next Lesson'}])
 
 @app.route('/un_b.html')
 def un_b():
     return render_template("un_b.html", version = version, 
-    is_anthro = False, 
+    errorType = 'helpful', 
     basepage = "regular_instructions.html",
     buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
 
@@ -39,14 +58,14 @@ def un_b():
 @app.route('/an_a.html')
 def an_a():
     return render_template("an_a.html", version = version, 
-    is_anthro = True, 
+    errorType = 'anthro', 
     basepage = "anthro_instructions.html",
     buttonsData = [{'url': './an_b.html', 'display': 'Next Lesson'}])
 
 @app.route('/an_b.html')
 def an_b():
     return render_template("an_b.html", version = version, 
-    is_anthro = True, 
+    errorType = 'anthro', 
     basepage = "anthro_instructions.html",
     buttonsData = [{'url': './an_a.html', 'display': 'Previous Lesson'}, {'url': '#', 'display': "Take Survey!"}])
 
