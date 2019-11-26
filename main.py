@@ -48,7 +48,7 @@ def un_a():
     errorType = 'helpful', 
     basepage = "regular_instructions.html", 
     buttonsData = [{'url': './un_b.html', 'display': 'Next Lesson'}],
-    customerrorTitle = "Advice")
+    customerrorTitle = "Help")
 
 @app.route('/un_b.html')
 def un_b():
@@ -56,7 +56,7 @@ def un_b():
     errorType = 'helpful', 
     basepage = "regular_instructions.html",
     buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}],
-    customerrorTitle = 'Advice')
+    customerrorTitle = 'Help')
 
 
 @app.route('/an_a.html')
