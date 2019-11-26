@@ -30,14 +30,16 @@ def std_a():
     return render_template("un_a.html", version = version, 
     errorType = 'standard', 
     basepage = "regular_instructions.html", 
-    buttonsData = [{'url': './std_b.html', 'display': 'Next Lesson'}])
+    buttonsData = [{'url': './std_b.html', 'display': 'Next Lesson'}],
+    customerrorTitle = "")
 
 @app.route('/std_b.html')
 def std_b():
     return render_template("un_b.html", version = version, 
     errorType = 'standard', 
     basepage = "regular_instructions.html",
-    buttonsData = [{'url': './std_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}])
+    buttonsData = [{'url': './std_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}],
+    customerrorTitle = "")
 
 
 @app.route('/un_a.html')
@@ -45,14 +47,16 @@ def un_a():
     return render_template("un_a.html", version = version, 
     errorType = 'helpful', 
     basepage = "regular_instructions.html", 
-    buttonsData = [{'url': './un_b.html', 'display': 'Next Lesson'}])
+    buttonsData = [{'url': './un_b.html', 'display': 'Next Lesson'}],
+    customerrorTitle = "Advice")
 
 @app.route('/un_b.html')
 def un_b():
     return render_template("un_b.html", version = version, 
     errorType = 'helpful', 
     basepage = "regular_instructions.html",
-    buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}])
+    buttonsData = [{'url': './un_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}],
+    customerrorTitle = 'Advice')
 
 
 @app.route('/an_a.html')
@@ -60,14 +64,16 @@ def an_a():
     return render_template("an_a.html", version = version, 
     errorType = 'anthro', 
     basepage = "anthro_instructions.html",
-    buttonsData = [{'url': './an_b.html', 'display': 'Next Lesson'}])
+    buttonsData = [{'url': './an_b.html', 'display': 'Next Lesson'}],
+    customerrorTitle = "Rachel's Advice")
 
 @app.route('/an_b.html')
 def an_b():
     return render_template("an_b.html", version = version, 
     errorType = 'anthro', 
     basepage = "anthro_instructions.html",
-    buttonsData = [{'url': './an_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}])
+    buttonsData = [{'url': './an_a.html', 'display': 'Previous Lesson'}, {'url': 'https://forms.gle/SEfEYWP7eYtZhYNBA', 'display': "Take Survey!"}],
+    customerrorTitle = "Rachel's Advice")
 
     
 
